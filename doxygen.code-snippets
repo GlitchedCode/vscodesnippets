@@ -31,6 +31,11 @@
 		"prefix": "param",
 		"body": [ "* @param ${1:paramName} ${2:Parameter description}" ],
 		"description": "Doxygen parameter command for Javadoc-style comment blocks"
+	},
+	"Doxygen return command" : {
+		"scope" : "csharp,c,cpp,java,javascript,typescript",
+		"prefix": "return",
+		"body": [ "* @return ${1:Return value description}" ],
+		"description": "Doxygen parameter return for Javadoc-style comment blocks"
 	}
-
 }
