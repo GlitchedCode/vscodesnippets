@@ -1,0 +1,118 @@
+{
+	"WSDL definitions tag" :{
+		"scope" : "xml",
+		"prefix" : "wsdldef",
+		"body": [
+			"<definitions",
+			"name = \"${1:MyService}\"",
+  			"xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"",
+  			"xmlns:tns = \"${2:http://localhost/wsdl}\"",
+  			"xmlns:soap = \"http://schemas.xmlsoap.org/wsdl/soap/\"",
+  			"xmlns:wsdl = \"http://schemas.xmlsoap.org/wsdl/\"",
+  			"xmlns = \"http://schemas.xmlsoap.org/wsdl/\"",
+			"targetNamespace = \"${2:http://localhost/wsdl}\">",
+			"\t$0",
+			"</definitions>"
+		]
+	},
+	"WSDL types tag" :{
+		"scope": "xml",
+		"prefix": "wsdltypes",
+		"body": [
+			"<types>",
+			"\t<xs:schema targetNamespace=\"${1:http://localhost/wsdl}\">",
+			"\t\t$0",
+			"\t</xs:schema>",
+  			"</types>"
+		]
+	},
+	"WSDL element tag" :{
+		"scope": "xml",
+		"prefix": "wsdlelem",
+		"body": [
+			"<xs:element name=\"${1:email}\" type=\"${2:xs:string}\"/>"
+		]
+	},
+	"WSDL complex element tag" :{
+		"scope": "xml",
+		"prefix": "wsdlcelem",
+		"body": [
+			"<xs:element name=\"${1:email}\"/>",
+			"\t<xs:complexType>",
+			"\t\t$0",
+			"\t</xs:complexType>",
+			"</xs:element>"
+		]
+	},
+	"WSDL message tag" :{
+		"scope": "xml",
+		"prefix": "wsdlmsg",
+		"body": [
+			"<message name=\"${1:messageName}\">",
+			"\t$0",
+			"</message>"
+		]
+	},
+	"WSDL part tag" :{
+		"scope": "xml",
+		"prefix": "wsdlpart",
+		"body": [
+			"<part name=\"${1:name}\" type=\"${2:xs:string}\" />"
+		]
+	},
+	"WSDL port type tag" :{
+		"scope": "xml",
+		"prefix": "wsdlport",
+		"body": [
+			"<portType name=\"${1:name}\">",
+			"\t$0",
+			"</portType>"
+		]
+	},
+	"WSDL port operation tag" :{
+		"scope": "xml",
+		"prefix": "wsdlportop",
+		"body": [
+			"<operation name=\"${1:operationName}\">",
+      		"\t<input message=\"tns:${2:inputMessage}\" />",
+      		"\t<output message=\"tns:${3:outputMessage}\" />",
+    		"</operation>"
+		]
+	},
+	"WSDL binding tag": {
+		"scope": "xml",
+		"prefix": "wsdlbind",
+		"body": [
+			"<binding name=\"${1:bindingName}\" type=\"tns:${2:portType}\">",
+			"\t<soap:binding style=\"${3:rpc}\" transport=\"http://schemas.xmlsoap.org/soap/http\"/>",
+			"\t$0",
+			"</binding>"
+		]
+	},
+	"WSDL binding operation tag" :{
+		"scope": "xml",
+		"prefix": "wsdlbindop",
+		"body": [
+			"<operation name=\"${1:opName}\">",
+      		"\t<soap:operation soapAction=\"${2:localhost/wsdl/service.php/opName}\" style=\"${3:rpc}\"/>",
+	      	"\t<input>",
+		    "\t\t<soap:body use=\"${4:encoded}\" namespace=\"${5:localhost/wsdl}\" encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"/>",
+      		"\t</input>",
+      		"\t<output>",
+        	"\t\t<soap:body use=\"${6:encoded}\" namespace=\"${5:localhost/wsdl}\" encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"/>",
+      		"\t</output>",
+    		"</operation>"
+		]
+	},
+	"WSDL service tag" :{
+		"scope": "xml",
+		"prefix": "wsdlserv",
+		"body": [
+			"<service name=\"${1:serviceName}\">",
+    		"\t<port name=\"${2:portName}\" binding=\"tns:${3:bindingName}\">",
+      		"\t\t<soap:address location=\"${4:http://localhost/wsdl/service.php}\"/>",
+		    "\t</port>",
+  			"</service>"
+		]
+	}
+}
